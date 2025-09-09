@@ -1,0 +1,10 @@
+o:BibTeX::Bibliography
+:@options{:parse_namesT:parse_monthsT:include[:errors:allow_missing_keysF:
+debugF:
+stripF:
+@data[o:BibTeX::Entry
+:@fields{:	abbro:BibTeX::Value:@tokens[I"
+arXiv:ET:bibtex_showo;;[I"	true;T:
+titleo;;[I"<Delta Velocity Rectified Flow for Text-to-Image Editing;T:authoro:BibTeX::Names;[
+S:BibTeX::Name	:
+firstI"Gaspard;T:	lastI"Beaudouin;T:prefix0:suffix0S;	;I"Minghan;T;I"Li;T;0;0S;	;I"Jaeyeon;T;I"Kim;T;0;0S;	;I"Sunghoon;T;I"	Yoon;T;0;0S;	;I"Mengyu;T;I"	Wang;T;0;0:abstracto;;[I"‹We propose Delta Velocity Rectified Flow (DVRF), a novel inversion-free, path-aware editing framework within rectified flow models for text-to-image editing. DVRF is a distillation-based method that explicitly models the discrepancy between the source and target velocity fields in order to mitigate over-smoothing artifacts rampant in prior distillation sampling approaches. We further introduce a time-dependent shift term to push noisy latents closer to the target trajectory, enhancing the alignment with the target distribution. We theoretically demonstrate that when this shift is disabled, DVRF reduces to Delta Denoising Score, thereby bridging score-based diffusion optimization and velocity-based rectified-flow optimization. Moreover, when the shift term follows a linear schedule under rectified-flow dynamics, DVRF generalizes the Inversion-free method FlowEdit and provides a principled theoretical interpretation for it. Experimental results indicate that DVRF achieves superior editing quality, fidelity, and controllability while requiring no architectural modifications, making it efficient and broadly applicable to text-to-image editing tasks.
