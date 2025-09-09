@@ -1,0 +1,63 @@
+- title: General Information
+  type: map
+  contents:
+    - name: Full Name
+      value: Gaspard Beaudouin
+    - name: Languages
+      value: French, English
+
+- title: Education
+  type: time_table
+  contents:
+    - title: Master MVA - Vision & Apprentissage
+      institution: ENS Paris-Saclay, France
+      year: 2025-2027
+      description:
+        - Computer Vision and Machine Learning
+        - Advanced topics in deep learning and computer vision
+    - title: Bachelor in Mathematics and Computer Science
+      institution: École des Ponts ParisTech, France
+      year: 2022-2025
+      description:
+        - Mathematics and Computer Science department
+        - Strong foundation in mathematics, algorithms, and machine learning
+
+- title: Experience
+  type: time_table
+  contents:
+    - title: Research Intern
+      institution: Harvard University, Cambridge, MA, USA
+      year: 2024
+      description:
+        - Research on flow matching and generative models
+        - Collaboration on novel approaches to flow-based generative modeling
+    - title: ML Engineering Intern
+      institution: Sinequa, Paris, France
+      year: 2023
+      description:
+        - Machine Learning Engineering on Large Language Models
+        - Development and optimization of LLM-based solutions
+
+- title: Research Interests
+  type: nested_list
+  contents:
+    - title: Generative Models
+      items:
+        - Flow matching and rectified flows
+        - Diffusion models
+        - Text-to-image generation and editing
+    - title: Computer Vision
+      items:
+        - 4D vision and dynamic scenes
+        - Multimodal learning
+        - Large language models for vision
+
+- title: Publications
+  type: time_table
+  contents:
+    - title: Delta Velocity Rectified Flow for Text-to-Image Editing
+      year: 2025
+      description: First author paper on arXiv (2509.05342)
+    - title: Additional papers in preparation
+      year: 2025-2026
+      description: 3 papers in preparation on image editing, 4D vision, and multimodal LLMs
