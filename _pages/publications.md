@@ -6,4 +6,6 @@ nav: true
 nav_order: 4
 ---
 
-{% include full_bibliography.liquid %}
+<div class="publications">
+  {% bibliography --group_by year --group_order descending %}
+</div>
