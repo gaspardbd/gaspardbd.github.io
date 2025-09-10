@@ -4,6 +4,7 @@ title: projects
 permalink: /projects/
 nav: true
 nav_order: 3
+hide_project_images: true
 ---
 
 <div class="projects">
