@@ -6,4 +6,4 @@ nav: true
 nav_order: 4
 ---
 
-{% bibliography --template bib --group_by year --group_order descending %}
+{% include full_bibliography.liquid %}
