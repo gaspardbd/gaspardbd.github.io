@@ -6,7 +6,6 @@ category: work
 importance: 1
 github: https://github.com/gaspardbd
 redirect: https://github.com/gaspardbd
-published: false
 ---
 
 Quick link to my profile. Featured repos are listed below.
