@@ -1,5 +1,5 @@
 ---
-date: 2024-06-01
+date: 2025-02-01
 title: Research Internship at Harvard
 inline: true
 ---
