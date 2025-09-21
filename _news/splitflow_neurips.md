@@ -1,5 +1,5 @@
 ---
-date: 2025-01-27
+date: 2025-09-18
 title: SplitFlow accepted at NeurIPS 2025
 inline: true
 ---
