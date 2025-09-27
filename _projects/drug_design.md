@@ -9,3 +9,4 @@ redirect: https://github.com/gaspardbd/Drug-Design
 ---
 
 Jupyter notebooks exploring machine learning applications in drug design and molecular discovery. This project investigates computational approaches to pharmaceutical research and molecular property prediction.
+
