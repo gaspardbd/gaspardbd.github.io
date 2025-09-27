@@ -49,19 +49,24 @@ nav_order: 4
   text-decoration: underline;
 }
 
-/* Auteurs complets, visibles immédiatement */
-.publications .bibliography .author {
-  margin: 0.2rem 0 0.8rem 0;
-  font-size: 0.95rem;
-  line-height: 1.5;
-}
-.publications .bibliography .author a {
-  color: var(--global-theme-color);
-  text-decoration: none;
-}
-.publications .bibliography .author a:hover {
-  text-decoration: underline;
-}
+ /* Auteurs complets, visibles immédiatement */
+ .publications .bibliography .author {
+   margin: 0.2rem 0 0.8rem 0;
+   font-size: 0.95rem;
+   line-height: 1.5;
+ }
+ .publications .bibliography .author a {
+   color: var(--global-theme-color);
+   text-decoration: none;
+ }
+ .publications .bibliography .author a:hover {
+   text-decoration: underline;
+ }
+ 
+ /* Supprimer "and" entre les auteurs */
+ .publications .bibliography .author .and {
+   display: none;
+ }
 
 /* Zone des liens (pdf, code, arXiv, etc.) */
 .publications .bibliography .links {
@@ -84,18 +89,24 @@ nav_order: 4
   opacity: 0.9;
 }
 
-/* Abstract affiché en entier, bloc propre */
-.publications .bibliography .abstract,
-.publications .bibliography details.abstract,
-.publications .bibliography .entry .abstract {
-  margin-top: 0.8rem;
-  padding: 0.9rem 1rem;
-  background: var(--global-bg-color);
-  border-left: 4px solid var(--global-theme-color);
-  font-size: 0.92rem;
-  line-height: 1.6;
-  color: var(--global-text-color-light);
-}
+ /* Abstract affiché en entier, bloc propre */
+ .publications .bibliography .abstract,
+ .publications .bibliography details.abstract,
+ .publications .bibliography .entry .abstract {
+   margin-top: 0.8rem;
+   padding: 0.9rem 1rem;
+   background: var(--global-bg-color);
+   border-left: 4px solid var(--global-theme-color);
+   font-size: 0.92rem;
+   line-height: 1.6;
+   color: var(--global-text-color-light);
+ }
+ 
+ /* Supprimer les boutons ABS */
+ .publications .bibliography .abbr,
+ .publications .bibliography .abbr abbr {
+   display: none !important;
+ }
 
 /* Bloc BibTeX + bouton Copy */
 .publications .bibliography .bibtex,
@@ -146,16 +157,20 @@ nav_order: 4
 
 <script>
 document.addEventListener('DOMContentLoaded', function () {
-  /* 1) Auteurs complets: si le thème cache des auteurs dans des spans,
-        on les force visibles et on supprime un éventuel bouton "more" */
-  document.querySelectorAll('.bibliography .author').forEach(function (el) {
-    el.querySelectorAll('.hidden, [style*="display: none"]').forEach(function (h) {
-      h.style.display = 'inline';
-    });
-    el.querySelectorAll('.more-authors, .more-authors-btn, .toggle-authors').forEach(function (btn) {
-      btn.remove();
-    });
-  });
+   /* 1) Auteurs complets: si le thème cache des auteurs dans des spans,
+         on les force visibles et on supprime un éventuel bouton "more" */
+   document.querySelectorAll('.bibliography .author').forEach(function (el) {
+     el.querySelectorAll('.hidden, [style*="display: none"]').forEach(function (h) {
+       h.style.display = 'inline';
+     });
+     el.querySelectorAll('.more-authors, .more-authors-btn, .toggle-authors').forEach(function (btn) {
+       btn.remove();
+     });
+     // Supprimer les éléments "and" entre les auteurs
+     el.querySelectorAll('.and').forEach(function (andEl) {
+       andEl.remove();
+     });
+   });
 
   /* 2) Abstract toujours visible:
         certains thèmes enveloppent l'abstract dans <details class="abstract"> */
@@ -166,6 +181,11 @@ document.addEventListener('DOMContentLoaded', function () {
     wrapper.className = 'abstract';
     contentNodes.forEach(n => wrapper.appendChild(n));
     det.replaceWith(wrapper);
+  });
+  
+  /* 3) Supprimer tous les boutons ABS */
+  document.querySelectorAll('.bibliography .abbr, .bibliography .abbr abbr').forEach(function (el) {
+    el.remove();
   });
 
   /* 3) BibTeX toujours visible et bouton Copy:
