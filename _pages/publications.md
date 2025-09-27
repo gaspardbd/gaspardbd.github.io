@@ -7,167 +7,208 @@ nav_order: 4
 ---
 
 <div class="publications">
-  <div class="publications-header">
-    <h1>Publications</h1>
-    <p class="publications-subtitle">Research contributions in computer vision, machine learning, and 4D perception</p>
-  </div>
-  
   {% bibliography --group_by year --group_order descending %}
 </div>
 
 <style>
-.publications-header {
-  text-align: center;
-  margin-bottom: 3rem;
-  padding-bottom: 2rem;
-  border-bottom: 2px solid var(--global-divider-color);
-}
-
-.publications-header h1 {
-  color: var(--global-theme-color);
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-  font-weight: 700;
-}
-
-.publications-subtitle {
-  color: var(--global-text-color-light);
-  font-size: 1.1rem;
-  margin: 0;
-}
-
+/* Conteneur principal */
 .publications {
-  .bibliography {
-    li {
-      margin-bottom: 2rem;
-      padding-bottom: 1.5rem;
-      border-bottom: 1px solid var(--global-divider-color);
-      
-      .title {
-        font-size: 1.2rem;
-        font-weight: 600;
-        margin-bottom: 0.8rem;
-        line-height: 1.4;
-        
-        a {
-          color: var(--global-text-color);
-          text-decoration: none;
-          
-          &:hover {
-            color: var(--global-theme-color);
-          }
-        }
-      }
-      
-      .author {
-        margin-bottom: 1rem;
-        font-size: 0.95rem;
-        line-height: 1.5;
-        
-        a {
-          color: var(--global-theme-color);
-          text-decoration: none;
-          
-          &:hover {
-            text-decoration: underline;
-          }
-        }
-      }
-      
-      .links {
-        margin-top: 1rem;
-        padding-top: 1rem;
-        border-top: 1px solid var(--global-divider-color);
-        
-        a {
-          display: inline-block;
-          margin-right: 1rem;
-          margin-bottom: 0.5rem;
-          padding: 0.4rem 0.8rem;
-          background: var(--global-theme-color);
-          color: white;
-          text-decoration: none;
-          font-size: 0.85rem;
-          font-weight: 500;
-          transition: all 0.2s ease;
-          
-          &:hover {
-            background: var(--global-hover-color);
-          }
-        }
-      }
-      
-      .abstract {
-        margin-top: 1rem;
-        padding: 1rem;
-        background: var(--global-bg-color);
-        border-left: 4px solid var(--global-theme-color);
-        font-size: 0.9rem;
-        line-height: 1.6;
-        color: var(--global-text-color-light);
-      }
-      
-      .bibtex {
-        margin-top: 1rem;
-        padding: 1rem;
-        background: var(--global-code-bg-color);
-        font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
-        font-size: 0.8rem;
-        line-height: 1.4;
-        overflow-x: auto;
-        border: 1px solid var(--global-divider-color);
-        position: relative;
-        
-        .copy-btn {
-          position: absolute;
-          top: 0.5rem;
-          right: 0.5rem;
-          background: var(--global-theme-color);
-          color: white;
-          border: none;
-          padding: 0.3rem 0.6rem;
-          font-size: 0.7rem;
-          cursor: pointer;
-          transition: background 0.2s ease;
-          
-          &:hover {
-            background: var(--global-hover-color);
-          }
-        }
-      }
-    }
-  }
-  
-  h2 {
-    color: var(--global-theme-color);
-    font-size: 1.8rem;
-    margin-top: 3rem;
-    margin-bottom: 1.5rem;
-    padding-bottom: 0.5rem;
-    border-bottom: 2px solid var(--global-theme-color);
-    display: inline-block;
-  }
+  margin-top: 0.5rem;
 }
+
+/* Enlever toute numérotation ou puces */
+.publications .bibliography,
+.publications .bibliography ul,
+.publications .bibliography ol {
+  list-style: none;
+  padding-left: 0;
+  margin-left: 0;
+  counter-reset: none;
+}
+
+/* Chaque entrée bibliographique */
+.publications .bibliography li {
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid var(--global-divider-color);
+}
+
+/* Titre de la publication */
+.publications .bibliography .title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  line-height: 1.4;
+  margin-bottom: 0.6rem;
+}
+.publications .bibliography .title a {
+  color: var(--global-text-color);
+  text-decoration: none;
+}
+.publications .bibliography .title a:hover {
+  color: var(--global-theme-color);
+  text-decoration: underline;
+}
+
+/* Auteurs complets, visibles immédiatement */
+.publications .bibliography .author {
+  margin: 0.2rem 0 0.8rem 0;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+.publications .bibliography .author a {
+  color: var(--global-theme-color);
+  text-decoration: none;
+}
+.publications .bibliography .author a:hover {
+  text-decoration: underline;
+}
+
+/* Zone des liens (pdf, code, arXiv, etc.) */
+.publications .bibliography .links {
+  margin-top: 0.75rem;
+}
+.publications .bibliography .links a {
+  display: inline-block;
+  margin-right: 0.6rem;
+  margin-bottom: 0.5rem;
+  padding: 0.35rem 0.7rem;
+  background: var(--global-theme-color);
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.82rem;
+  font-weight: 500;
+  border-radius: 0.35rem;
+  transition: opacity 0.2s ease;
+}
+.publications .bibliography .links a:hover {
+  opacity: 0.9;
+}
+
+/* Abstract affiché en entier, bloc propre */
+.publications .bibliography .abstract,
+.publications .bibliography details.abstract,
+.publications .bibliography .entry .abstract {
+  margin-top: 0.8rem;
+  padding: 0.9rem 1rem;
+  background: var(--global-bg-color);
+  border-left: 4px solid var(--global-theme-color);
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: var(--global-text-color-light);
+}
+
+/* Bloc BibTeX + bouton Copy */
+.publications .bibliography .bibtex,
+.publications .bibliography details.bibtex,
+.publications .bibliography pre.bibtex {
+  position: relative;
+  margin-top: 0.8rem;
+  padding: 1rem;
+  background: var(--global-code-bg-color);
+  border: 1px solid var(--global-divider-color);
+  overflow-x: auto;
+  font-family: "Monaco","Menlo","Ubuntu Mono",monospace;
+  font-size: 0.85rem;
+  line-height: 1.4;
+}
+
+/* Bouton Copy */
+.publications .copy-btn {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  background: var(--global-theme-color);
+  color: #fff;
+  border: none;
+  padding: 0.35rem 0.6rem;
+  font-size: 0.75rem;
+  border-radius: 0.3rem;
+  cursor: pointer;
+}
+.publications .copy-btn:hover {
+  opacity: 0.9;
+}
+
+/* En-têtes d’année propres */
+.publications h2 {
+  color: var(--global-theme-color);
+  font-size: 1.6rem;
+  margin-top: 2.2rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 2px solid var(--global-theme-color);
+  display: inline-block;
+}
+
+/* Supprimer styles de numérotation spécifiques éventuels du thème */
+.publications .bibliography li::marker { content: ""; }
 </style>
 
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-  // Add copy functionality for BibTeX
-  const bibtexBlocks = document.querySelectorAll('.bibtex');
-  bibtexBlocks.forEach(block => {
-    const copyBtn = document.createElement('button');
-    copyBtn.className = 'copy-btn';
-    copyBtn.textContent = 'Copy';
-    copyBtn.onclick = function() {
-      const text = block.textContent.replace('Copy', '').trim();
+document.addEventListener('DOMContentLoaded', function () {
+  /* 1) Auteurs complets: si le thème cache des auteurs dans des spans,
+        on les force visibles et on supprime un éventuel bouton "more" */
+  document.querySelectorAll('.bibliography .author').forEach(function (el) {
+    el.querySelectorAll('.hidden, [style*="display: none"]').forEach(function (h) {
+      h.style.display = 'inline';
+    });
+    el.querySelectorAll('.more-authors, .more-authors-btn, .toggle-authors').forEach(function (btn) {
+      btn.remove();
+    });
+  });
+
+  /* 2) Abstract toujours visible:
+        certains thèmes enveloppent l'abstract dans <details class="abstract"> */
+  document.querySelectorAll('.bibliography details.abstract').forEach(function (det) {
+    det.open = true; // au cas où
+    const contentNodes = Array.from(det.childNodes).filter(n => n.tagName !== 'SUMMARY');
+    const wrapper = document.createElement('div');
+    wrapper.className = 'abstract';
+    contentNodes.forEach(n => wrapper.appendChild(n));
+    det.replaceWith(wrapper);
+  });
+
+  /* 3) BibTeX toujours visible et bouton Copy:
+        si le BibTeX est dans <details class="bibtex">, on l’ouvre et on remplace par un bloc direct */
+  document.querySelectorAll('.bibliography details.bibtex').forEach(function (det) {
+    det.open = true;
+    // Récupérer tout sauf le <summary>
+    const contentNodes = Array.from(det.childNodes).filter(n => n.tagName !== 'SUMMARY');
+    const box = document.createElement('div');
+    box.className = 'bibtex';
+    contentNodes.forEach(n => box.appendChild(n));
+    det.replaceWith(box);
+  });
+
+  /* 4) Ajouter un bouton Copy sur chaque bloc BibTeX */
+  function addCopyButtonTo(node) {
+    // éviter doublons
+    if (node.querySelector('.copy-btn')) return;
+    const btn = document.createElement('button');
+    btn.className = 'copy-btn';
+    btn.textContent = 'Copy';
+    btn.addEventListener('click', function () {
+      // texte sans le bouton
+      const clone = node.cloneNode(true);
+      clone.querySelectorAll('.copy-btn').forEach(b => b.remove());
+      const text = clone.textContent.trim();
       navigator.clipboard.writeText(text).then(() => {
-        copyBtn.textContent = 'Copied!';
-        setTimeout(() => {
-          copyBtn.textContent = 'Copy';
-        }, 2000);
+        const old = btn.textContent;
+        btn.textContent = 'Copied!';
+        setTimeout(() => { btn.textContent = old; }, 1600);
       });
-    };
-    block.appendChild(copyBtn);
+    });
+    node.appendChild(btn);
+  }
+
+  // Cas 1: blocs avec classe .bibtex
+  document.querySelectorAll('.bibliography .bibtex').forEach(addCopyButtonTo);
+
+  // Cas 2: <pre class="bibtex"> ou <pre><code class="language-bibtex">
+  document.querySelectorAll('.bibliography pre.bibtex, .bibliography pre code.language-bibtex').forEach(function (node) {
+    const host = node.closest('pre') || node.parentElement;
+    host.classList.add('bibtex');
+    addCopyButtonTo(host);
   });
 });
 </script>
