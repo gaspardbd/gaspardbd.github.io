@@ -39,18 +39,9 @@ nav_order: 4
 .publications {
   .bibliography {
     li {
-      background: var(--global-card-bg-color);
-      border-radius: 12px;
-      padding: 1.5rem;
       margin-bottom: 2rem;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      transition: all 0.3s ease;
-      border: 1px solid var(--global-divider-color);
-      
-      &:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 4px 16px rgba(0,0,0,0.15);
-      }
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--global-divider-color);
       
       .title {
         font-size: 1.2rem;
@@ -76,10 +67,9 @@ nav_order: 4
         a {
           color: var(--global-theme-color);
           text-decoration: none;
-          border-bottom: 1px dashed var(--global-theme-color);
           
           &:hover {
-            border-bottom-style: solid;
+            text-decoration: underline;
           }
         }
       }
@@ -97,14 +87,12 @@ nav_order: 4
           background: var(--global-theme-color);
           color: white;
           text-decoration: none;
-          border-radius: 6px;
           font-size: 0.85rem;
           font-weight: 500;
           transition: all 0.2s ease;
           
           &:hover {
             background: var(--global-hover-color);
-            transform: translateY(-1px);
           }
         }
       }
@@ -113,7 +101,6 @@ nav_order: 4
         margin-top: 1rem;
         padding: 1rem;
         background: var(--global-bg-color);
-        border-radius: 8px;
         border-left: 4px solid var(--global-theme-color);
         font-size: 0.9rem;
         line-height: 1.6;
@@ -124,20 +111,21 @@ nav_order: 4
         margin-top: 1rem;
         padding: 1rem;
         background: var(--global-code-bg-color);
-        border-radius: 8px;
         font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
         font-size: 0.8rem;
         line-height: 1.4;
         overflow-x: auto;
         border: 1px solid var(--global-divider-color);
+        position: relative;
         
         .copy-btn {
-          float: right;
+          position: absolute;
+          top: 0.5rem;
+          right: 0.5rem;
           background: var(--global-theme-color);
           color: white;
           border: none;
           padding: 0.3rem 0.6rem;
-          border-radius: 4px;
           font-size: 0.7rem;
           cursor: pointer;
           transition: background 0.2s ease;
@@ -180,37 +168,6 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     };
     block.appendChild(copyBtn);
-  });
-  
-  // Add expand/collapse for abstracts
-  const abstracts = document.querySelectorAll('.abstract');
-  abstracts.forEach(abstract => {
-    if (abstract.textContent.length > 200) {
-      const shortText = abstract.textContent.substring(0, 200) + '...';
-      const fullText = abstract.textContent;
-      
-      abstract.innerHTML = `
-        <span class="abstract-short">${shortText}</span>
-        <span class="abstract-full" style="display: none;">${fullText}</span>
-        <button class="expand-btn" style="background: none; border: none; color: var(--global-theme-color); cursor: pointer; font-size: 0.8rem; margin-top: 0.5rem;">Show more</button>
-      `;
-      
-      const expandBtn = abstract.querySelector('.expand-btn');
-      const shortSpan = abstract.querySelector('.abstract-short');
-      const fullSpan = abstract.querySelector('.abstract-full');
-      
-      expandBtn.onclick = function() {
-        if (fullSpan.style.display === 'none') {
-          fullSpan.style.display = 'inline';
-          shortSpan.style.display = 'none';
-          expandBtn.textContent = 'Show less';
-        } else {
-          fullSpan.style.display = 'none';
-          shortSpan.style.display = 'inline';
-          expandBtn.textContent = 'Show more';
-        }
-      };
-    }
   });
 });
 </script>

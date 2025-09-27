@@ -1,6 +1,6 @@
 ---
 title: Drug Design
-description: Machine learning approaches for drug discovery and molecular design
+description: Implementation DDPM, exploration DiffDock for drug binding discovery (supervised by researchers and Sanofi)
 img: assets/img/3.jpg
 category: work
 importance: 3

@@ -1,6 +1,6 @@
 ---
 title: Mini Transformer
-description: Small Decoder in order to generate small La Fontaine's Fable
+description: GPT architecture from scratch in order to generate small La Fontaine's Fable
 img: assets/img/4.jpg
 category: fun
 importance: 4
