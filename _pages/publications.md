@@ -170,6 +170,12 @@ document.addEventListener('DOMContentLoaded', function () {
      el.querySelectorAll('.and').forEach(function (andEl) {
        andEl.remove();
      });
+     // Remplacer tout texte ' and ' par une virgule pour les noeuds texte
+     el.childNodes.forEach(function (node) {
+       if (node.nodeType === 3) {
+         node.textContent = node.textContent.replace(/\sand\s/g, ', ');
+       }
+     });
    });
 
   /* 2) Abstract toujours visible:
