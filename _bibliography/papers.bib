@@ -24,7 +24,12 @@
 
 @misc{zhou2025page4d,
       title={PAGE-4D: Disentangled Pose and Geometry Estimation for 4D Perception},
-      author={Kaichen Zhou and Yuhan Wang and Grace Chen and Gaspard Beaudouin and Fangneng Zhan and Paul Pu Liang and Mengyu Wang},
+      author={Kaichen Zhou and Yuhan Wang and Grace Chen and Xinhai Chang and Gaspard Beaudouin and Fangneng Zhan and Paul Pu Liang and Mengyu Wang},
       year={2025},
-      note={Under review}
+      eprint={2510.17568},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2510.17568},
+      note={Under review},
+      abstract={Recent 3D feed-forward models, such as the Visual Geometry Grounded Transformer (VGGT), have shown strong capability in inferring 3D attributes of static scenes. However, since they are typically trained on static datasets, these models often struggle in real-world scenarios involving complex dynamic elements, such as moving humans or deformable objects like umbrellas. To address this limitation, we introduce PAGE-4D, a feedforward model that extends VGGT to dynamic scenes, enabling camera pose estimation, depth prediction, and point cloud reconstruction -- all without post-processing. A central challenge in multi-task 4D reconstruction is the inherent conflict between tasks: accurate camera pose estimation requires suppressing dynamic regions, while geometry reconstruction requires modeling them. To resolve this tension, we propose a dynamics-aware aggregator that disentangles static and dynamic information by predicting a dynamics-aware mask -- suppressing motion cues for pose estimation while amplifying them for geometry reconstruction. Extensive experiments show that PAGE-4D consistently outperforms the original VGGT in dynamic scenarios, achieving superior results in camera pose estimation, monocular and video depth estimation, and dense point map reconstruction.}
 }
