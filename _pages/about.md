@@ -6,7 +6,7 @@ subtitle: <a href='https://www.ens-paris-saclay.fr/'>ENS Paris-Saclay</a>. <a hr
 
 profile:
   align: right
-  image: profile_pic.jpg
+  image: pic-gaspard.jpg
   image_circular: false # crops the image to make it circular
 
 selected_papers: false # includes a list of papers marked as "selected={true}"
