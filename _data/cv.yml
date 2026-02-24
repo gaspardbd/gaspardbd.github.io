@@ -55,9 +55,12 @@
 - title: Publications
   type: time_table
   contents:
-    - title: Delta Velocity Rectified Flow for Text-to-Image Editing
-      year: 2025
-      description: First author paper on arXiv (2509.05342)
+    - title: Delta Rectified Flow Sampling for Text-to-Image Editing
+      year: 2026
+      description: "First author paper accepted at CVPR 2026 (arXiv: 2509.05342)"
+    - title: "PAGE-4D: Disentangled Pose and Geometry Estimation for 4D Perception"
+      year: 2026
+      description: "Co-author paper accepted at ICLR 2026 (arXiv: 2510.17568)"
     - title: Additional papers in preparation
       year: 2025-2026
       description: 3 papers in preparation on image editing, 4D vision, and multimodal LLMs
