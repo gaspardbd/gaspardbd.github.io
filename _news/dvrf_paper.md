@@ -1,6 +1,6 @@
 ---
-date: 2026-02-24
-title: News: Delta Rectified Flow Sampling accepted at CVPR 2026
+date: 2026-02-25
+title: "News: Delta Rectified Flow Sampling accepted at CVPR 2026"
 inline: true
 ---
 
