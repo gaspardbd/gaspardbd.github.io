@@ -1,5 +1,5 @@
 ---
-date: 2026-02-24
+date: 2026-01-26
 title: PAGE-4D accepted at ICLR 2026
 inline: true
 ---
