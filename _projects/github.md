@@ -13,8 +13,8 @@ Quick link to my profile. Featured repos are listed below.
 ## Featured
 
 - [DeltaRectifiedFlowSampling](https://github.com/gaspardbd/DeltaRectifiedFlowSampling)
-- [SparseAttention](https://github.com/gaspardbd/SparseAttention)
-- [FlowMatchingGeneralisation](https://github.com/gaspardbd/FlowMatchingGeneralisation)
+- [NativeSparseAttention](https://github.com/gaspardbd/NativeSparseAttention)
+- [FlowMatchingGeneralization](https://github.com/gaspardbd/FlowMatchingGeneralization)
 - [EdgeDetection](https://github.com/gaspardbd/detection_de_bords)
 - [Drug-Design](https://github.com/gaspardbd/Drug-Design)
 - [Mini-Transformer](https://github.com/gaspardbd/Mini-Transformer)

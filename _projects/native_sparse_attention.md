@@ -4,8 +4,8 @@ description: Academic project on large-scale LLM training and long-context spars
 img: assets/img/5.jpg
 category: work
 importance: 2
-github: https://github.com/gaspardbd/SparseAttention
-redirect: https://github.com/gaspardbd/SparseAttention
+github: https://github.com/gaspardbd/NativeSparseAttention
+redirect: https://github.com/gaspardbd/NativeSparseAttention
 ---
 
 Reproduced DeepSeek-AI's Native Sparse Attention with compression, selection, and sliding-window branches; implemented a PyTorch reference transformer with RoPE, RMSNorm, SwiGLU, and GQA-style attention.
