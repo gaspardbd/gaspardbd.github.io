@@ -2,6 +2,7 @@
 layout: about
 title: about
 permalink: /
+description: Gaspard Beaudouin is a Research Scientist Intern at Mistral AI on the Multimodal team, and a Master's student in Mathematics, Vision and Learning (MVA) at ENS Paris-Saclay.
 subtitle: <a href='https://www.ens-paris-saclay.fr/'>ENS Paris-Saclay</a>. <a href='https://www.enpc.fr/'>École nationale des ponts et chaussées, Institut Polytechnique de Paris </a>. Machine Learning.
 
 profile:
