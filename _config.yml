@@ -186,6 +186,15 @@ exclude:
   - readme_preview/
   - vendor
   - assets/jupyter/
+  # al-folio demo media, unused on this site (kept in the repo, just not published)
+  - assets/video/
+  - assets/audio/
+  - assets/plotly/
+  - assets/img/prof_pic.jpg
+  - assets/img/prof_pic_color.png
+  - assets/img/profile_pic.jpg
+  - assets/img/rhino.png
+  - assets/img/publication_preview/
 keep_files:
   - CNAME
   - .nojekyll
