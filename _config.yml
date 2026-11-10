@@ -17,7 +17,7 @@ footer_text: >
   Photos from <a href="https://unsplash.com" target="_blank">Unsplash</a>.
 keywords: Gaspard Beaudouin, Mistral AI, computer vision, machine learning, flow matching, generative models, VLMs, MVA, ENS Paris-Saclay, École des Ponts
 lang: en # the language of your site (for example: en, fr, cn, ru, etc.)
-icon: ⚛️ # the emoji used as the favicon (alternatively, provide image name in /assets/img/)
+icon: favicon.svg # an emoji, or a file in /assets/favicon/ (italic G in Latin Modern, with PNG fallbacks next to it)
 
 url: https://gaspardbd.github.io # the base hostname & protocol for your site
 baseurl: # the subpath of your site, e.g. /blog/. Leave blank for root
