@@ -1,4 +1,14 @@
 $(document).ready(function () {
+  // let keyboard users open the abstract, award and bibtex toggles (they have no href)
+  $("a.abstract, a.award, a.bibtex")
+    .attr("tabindex", 0)
+    .on("keydown", function (e) {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        $(this).trigger("click");
+      }
+    });
+
   // add toggle functionality to abstract, award and bibtex buttons
   $("a.abstract").click(function () {
     $(this).parent().parent().find(".abstract.hidden").toggleClass("open");

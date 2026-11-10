@@ -226,6 +226,39 @@ body.sticky-bottom-footer {
   font-size: 1rem;
 }
 
+.navbar a,
+.navbar button,
+a.project-card {
+  -webkit-tap-highlight-color: transparent;
+}
+
+// Phone menu: pages stacked, then search and theme side by side.
+@media (max-width: 575.98px) {
+  .navbar-collapse .navbar-nav {
+    flex-direction: row;
+    flex-wrap: wrap !important; // beats Bootstrap's .flex-nowrap on the list
+    align-items: center;
+    padding: 0.2rem 0 0.6rem;
+
+    > .nav-item {
+      flex: 0 0 100%;
+    }
+
+    > .nav-item:has(#search-toggle) {
+      flex: 0 0 auto;
+    }
+  }
+
+  // No keyboard on phones: show the search icon without "⌘ K".
+  #search-toggle .nav-link {
+    font-size: 0;
+  }
+
+  #light-toggle i[id] {
+    padding-top: 0 !important;
+  }
+}
+
 progress {
   top: 56px;
 }
@@ -319,6 +352,9 @@ progress {
   img,
   img.z-depth-1 {
     width: 100%;
+    height: auto;
+    aspect-ratio: 2482 / 3359; // pic-gaspard.jpg: reserve space so text doesn't jump
+    object-fit: cover;
     border-radius: 0 !important;
     box-shadow: none !important;
     border: 1px solid var(--global-divider-color);
@@ -650,8 +686,19 @@ footer.fixed-bottom {
         }
       }
 
+      // Open and close with a short fade instead of a hard height snap.
       .hidden {
         font-size: 0.98rem;
+        opacity: 0;
+        transition:
+          max-height 0.3s ease,
+          opacity 0.25s ease,
+          margin 0.3s ease;
+
+        &.open {
+          opacity: 1;
+          max-height: 60rem;
+        }
 
         p {
           margin: 0;
@@ -713,6 +760,11 @@ footer.fixed-bottom {
 
     div.abstract.hidden {
       padding: 0 0.5rem;
+    }
+
+    // Abstracts run longer in a narrow column.
+    .hidden.open {
+      max-height: 120rem;
     }
   }
 }
@@ -797,9 +849,72 @@ footer.fixed-bottom {
   }
 }
 
+/* Motion -------------------------------------------------------------------*/
+
+// Cross-fade between pages in browsers that support it; others just navigate.
+@view-transition {
+  navigation: auto;
+}
+
+#navbar {
+  view-transition-name: site-nav;
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 0.2s;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  @view-transition {
+    navigation: none;
+  }
+}
+
+// Theme switch: theme.js removes this class after 500ms, so finish before then
+// (the default 750ms "all" transition was cut off mid-way).
+html.transition,
+html.transition *,
+html.transition *::before,
+html.transition *::after {
+  transition:
+    background-color 0.3s ease,
+    border-color 0.3s ease,
+    color 0.3s ease,
+    fill 0.3s ease !important;
+  transition-delay: 0s !important;
+}
+
+// Even line endings: no lonely last words in text, balanced titles.
+.post article p,
+.news td,
+.projects .card-text {
+  text-wrap: pretty;
+}
+
+.post-title,
+.post article > h2,
+.publications ol.bibliography li .title,
+.projects .card-title {
+  text-wrap: balance;
+}
+
 /* Search -------------------------------------------------------------------*/
 
 ninja-keys {
   --ninja-font-family: #{$tex-serif};
   --ninja-font-size: 17px;
+}
+
+/* 404 ----------------------------------------------------------------------*/
+
+.post article > p.not-found {
+  text-align: center;
+  margin-top: 1rem;
 }

@@ -25,7 +25,27 @@
 <link defer rel="stylesheet" href="{{ '/assets/css/academicons.min.css' | relative_url | bust_file_cache }}">
 <link defer rel="stylesheet" href="{{ '/assets/css/scholar-icons.css' | relative_url | bust_file_cache }}">
 <link rel="preload" href="{{ '/assets/fonts/LM-regular.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="{{ '/assets/fonts/LM-bold.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="{{ '/assets/fonts/LM-caps.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
+
+<!-- Load internal pages in the background when a link is hovered, so clicks feel instant.
+     Skips the CV redirect and files under /assets/ (PDFs). Ignored by browsers without support. -->
+<script type="speculationrules">
+  {
+    "prerender": [
+      {
+        "where": {
+          "and": [
+            { "href_matches": "/*" },
+            { "not": { "href_matches": "/cv/*" } },
+            { "not": { "href_matches": "/assets/*" } }
+          ]
+        },
+        "eagerness": "moderate"
+      }
+    ]
+  }
+</script>
 
 <!-- Code Syntax Highlighting -->
 <link
