@@ -1,4 +1,13 @@
 $(document).ready(function () {
+  // homepage: fade the name into the navbar once the big title has scrolled away
+  const brand = document.querySelector(".navbar-brand.brand-on-scroll");
+  const title = document.querySelector(".post-title");
+  if (brand && title && "IntersectionObserver" in window) {
+    new IntersectionObserver(([entry]) => brand.classList.toggle("is-visible", !entry.isIntersecting), {
+      rootMargin: "-56px 0px 0px 0px",
+    }).observe(title);
+  }
+
   // let keyboard users open the abstract, award and bibtex toggles (they have no href)
   $("a.abstract, a.award, a.bibtex")
     .attr("tabindex", 0)

@@ -851,7 +851,8 @@ footer.fixed-bottom {
 
 /* Motion -------------------------------------------------------------------*/
 
-// Cross-fade between pages in browsers that support it; others just navigate.
+// Page changes (Chrome, Edge, Safari 18.2+): the navbar stays put, the active
+// underline slides to the new item, and the content fades out then rises in.
 @view-transition {
   navigation: auto;
 }
@@ -860,9 +861,119 @@ footer.fixed-bottom {
   view-transition-name: site-nav;
 }
 
+body > .container[role="main"] {
+  view-transition-name: page-content;
+}
+
+// The navbar doesn't move; only its colours cross-fade.
+::view-transition-group(site-nav) {
+  animation-duration: 0.25s;
+}
+
 ::view-transition-old(root),
 ::view-transition-new(root) {
-  animation-duration: 0.2s;
+  animation-duration: 0.18s;
+}
+
+::view-transition-group(page-content) {
+  animation-duration: 0s;
+}
+
+::view-transition-old(page-content) {
+  animation: 0.12s ease-out both tex-fade-out;
+}
+
+::view-transition-new(page-content) {
+  animation: 0.32s cubic-bezier(0.2, 0.7, 0.2, 1) 0.06s both tex-rise-in;
+}
+
+::view-transition-group(nav-indicator) {
+  animation-duration: 0.38s;
+  animation-timing-function: cubic-bezier(0.3, 0.7, 0.2, 1);
+}
+
+@keyframes tex-fade-out {
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes tex-rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+}
+
+// Other browsers: the same gentle rise-in on load.
+@media (prefers-reduced-motion: no-preference) {
+  html.no-vt body > .container[role="main"] {
+    animation: tex-rise-in 0.32s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  }
+}
+
+// Same page width with or without a scrollbar, so nothing shifts between pages.
+html {
+  scrollbar-gutter: stable;
+}
+
+// Underline under the current menu item (slides between items on page change).
+.navbar .navbar-nav .nav-link {
+  position: relative;
+}
+
+.nav-indicator {
+  position: absolute;
+  left: 0.7rem;
+  right: 0.7rem;
+  bottom: 0.3rem;
+  height: 1px;
+  background: currentColor;
+  view-transition-name: nav-indicator;
+}
+
+@media (max-width: 575.98px) {
+  .nav-indicator {
+    display: none;
+  }
+}
+
+// Homepage: the name joins the navbar once the big title scrolls away.
+.navbar.navbar-light .navbar-brand.brand-on-scroll {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(3px);
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease,
+    visibility 0.25s;
+
+  &.is-visible {
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+  }
+}
+
+// Text links: the underline fades in rather than popping.
+.post article a:not(.project-card),
+.news a {
+  text-decoration-line: underline;
+  text-decoration-color: transparent;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+  transition:
+    color 0.15s ease,
+    text-decoration-color 0.2s ease;
+
+  &:hover,
+  &:focus-visible {
+    text-decoration-color: currentColor;
+  }
+}
+
+.post article .contact-icons a {
+  text-decoration: none;
 }
 
 @media (prefers-reduced-motion: no-preference) {

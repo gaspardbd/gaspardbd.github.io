@@ -102,6 +102,11 @@
   </script>
 {% endif %}
 
+<script>
+  // Browsers without cross-page transitions get a gentle fade-in instead (see _latex.scss).
+  if (!("onpagereveal" in window)) document.documentElement.classList.add("no-vt");
+</script>
+
 {% if page.map %}
   <!-- GeoJSON support via Leaflet -->
   <link

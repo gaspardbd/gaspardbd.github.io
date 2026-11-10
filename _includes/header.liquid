@@ -2,28 +2,30 @@
   <!-- Nav Bar -->
   <nav id="navbar" class="navbar navbar-light navbar-expand-sm {% if site.navbar_fixed %}fixed-top{% else %}sticky-top{% endif %}" role="navigation">
     <div class="container">
-      {% if page.permalink != '/' %}
-        <a class="navbar-brand title font-weight-lighter" href="{{ site.baseurl }}/">
-          {% if site.title == 'blank' %}
-            {% if site.first_name %}
-              <span class="font-weight-bold">
-                {{- site.first_name -}}
-              </span>
-            {% endif %}
-            {% if site.middle_name %}
-              {{- site.middle_name -}}
-            {% endif %}
-            {% if site.last_name %}
-              {{- site.last_name -}}
-            {% endif %}
-          {% else %}
-            {{- site.title -}}
+      {% comment %}
+        The name is always in the navbar so the menu sits in the same place on every page.
+        On the homepage it stays hidden until the big title scrolls away (see common.js).
+      {% endcomment %}
+      <a
+        class="navbar-brand title font-weight-lighter{% if page.permalink == '/' %} brand-on-scroll{% endif %}"
+        href="{{ site.baseurl }}/"
+      >
+        {% if site.title == 'blank' %}
+          {% if site.first_name %}
+            <span class="font-weight-bold">
+              {{- site.first_name -}}
+            </span>
           {% endif %}
-        </a>
-      {% elsif site.enable_navbar_social %}
-        <!-- Social Icons -->
-        <div class="navbar-brand social">{% include social.liquid %}</div>
-      {% endif %}
+          {% if site.middle_name %}
+            {{- site.middle_name -}}
+          {% endif %}
+          {% if site.last_name %}
+            {{- site.last_name -}}
+          {% endif %}
+        {% else %}
+          {{- site.title -}}
+        {% endif %}
+      </a>
       <!-- Navbar Toggle -->
       <button
         class="navbar-toggler collapsed ml-auto"
@@ -52,6 +54,7 @@
               {{- about_title }}
               {% if page.permalink == '/' %}
                 <span class="sr-only">(current)</span>
+                <span class="nav-indicator" aria-hidden="true"></span>
               {% endif %}
             </a>
           </li>
@@ -111,6 +114,7 @@
                     {{- p.title }}
                     {% if page.url contains p.url %}
                       <span class="sr-only">(current)</span>
+                      <span class="nav-indicator" aria-hidden="true"></span>
                     {% endif %}
                   </a>
                 </li>
