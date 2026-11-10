@@ -8,8 +8,9 @@ hide_project_images: true
 ---
 
 <div class="projects">
-  <div class="row row-cols-1 row-cols-md-3">
-    {% for project in site.projects %}
+  {% assign sorted_projects = site.projects | sort: 'importance' %}
+  <div class="row row-cols-1 row-cols-md-2">
+    {% for project in sorted_projects %}
       {% unless project.title == 'GitHub Projects' %}
         {% include projects.liquid %}
       {% endunless %}
